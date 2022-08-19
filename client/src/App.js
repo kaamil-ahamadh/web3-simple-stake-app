@@ -1,10 +1,11 @@
+import React, { useState, useEffect } from "react";
 import { ethers } from "ethers";
-import React, { useState } from "react";
 
 import GlobalContext from "./context/GlobalContext";
 import HomeScreen from "./screens/HomeScreen";
 import connectWallet from "./utils/connectWallet";
 import loadContract from "./utils/loadContract";
+import Loading from "./components/Loading";
 
 function App() {
   const [provider, setProvider] = useState(null);
@@ -19,6 +20,14 @@ function App() {
     staked: null,
     totalStaked: null,
   });
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
 
   const handleConnectWallet = async () => {
     const { _provider, _signer, _address, _balance, _chainId } =
@@ -76,7 +85,7 @@ function App() {
       }}
     >
       <div className="app-wrapper">
-        <HomeScreen />
+        {!loading ? <HomeScreen /> : <Loading />}
       </div>
     </GlobalContext.Provider>
   );
