@@ -6,7 +6,7 @@ const Staking = ({ contracts }) => {
   const [stakeClicked, setStakeClicked] = useState(false);
   const [unStakeClicked, setUnStakeClicked] = useState(false);
 
-  const { stknBalance, setUserAmount } = useContext(GlobalContext);
+  const { account, stknBalance, setUserAmount } = useContext(GlobalContext);
 
   //UseEffectForgetting Staked Balance
   useEffect(() => {
@@ -46,21 +46,30 @@ const Staking = ({ contracts }) => {
 
   return (
     <div className="card-container">
-      <div className="border-b-2 border-blue-500 m-4">Current Staking</div>
-      <div>Your STKN: {stknBalance.staked ? stknBalance.staked : null}</div>
-      <div>
-        Total STKN Staked:{" "}
-        {stknBalance.totalStaked ? stknBalance.totalStaked : null}
-      </div>
-
-      <div className="flex justify-between mt-4">
-        <div className="btn m-4" onClick={handleStakeClicked}>
-          Stake
+      {account.chainId === 5 ? (
+        <>
+          {" "}
+          <div className="border-b-2 border-blue-500 m-4">Current Staking</div>
+          <div>Your STKN: {stknBalance.staked ? stknBalance.staked : null}</div>
+          <div>
+            Total STKN Staked:{" "}
+            {stknBalance.totalStaked ? stknBalance.totalStaked : null}
+          </div>
+          <div className="flex justify-between mt-4">
+            <div className="btn m-4" onClick={handleStakeClicked}>
+              Stake
+            </div>
+            <div className="btn m-4" onClick={handleUnStakeClicked}>
+              UnStake
+            </div>
+          </div>
+        </>
+      ) : (
+        <div className="flex flex-col justify-center items-center h-[150px] text-center">
+          Please Change your network to Goerli network for Staking and UnStaking
+          STKN Tokens.
         </div>
-        <div className="btn m-4" onClick={handleUnStakeClicked}>
-          UnStake
-        </div>
-      </div>
+      )}
     </div>
   );
 };

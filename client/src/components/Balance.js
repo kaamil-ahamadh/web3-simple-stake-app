@@ -21,8 +21,12 @@ const Balance = ({ account, contracts }) => {
           precision: 4,
         })}
       </div>
-      <div>STKN: {stknBalance.wallet ? stknBalance.wallet : null}</div>
-      <div className="border-b-2 border-blue-500 mt-8"></div>
+      {stknBalance.wallet ? (
+        <>
+          <div>STKN: {stknBalance.wallet}</div>
+          <div className="border-b-2 border-blue-500 mt-8"></div>
+        </>
+      ) : null}
     </div>
   );
 };
