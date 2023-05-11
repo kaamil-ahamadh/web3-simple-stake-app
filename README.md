@@ -1,11 +1,11 @@
 # Simple Stake APP (Decentralized Crypto Staking App)
 
-Simple Stake App is a Crypto Staking Web3 app (also known as DAPP) that allows users to stake and unstake STKN Token (ERC20) bought from https://cryptoicoapp.netlify.app/.
+Simple Stake App is a Crypto Staking Web3 app (also known as DAPP) that allows users to stake and unstake STKN Token (ERC20) bought from https://cryptoicoapp.kaamilahamadh.online/.
 This Simple Stake App Smart Contract is deployed in Goerli Testnet Network.
 
 ## Live Website
 
-https://simplestakeapp.netlify.app/
+https://simplestakeapp.kaamilahamadh.online/
 
 ## Highlights
 
